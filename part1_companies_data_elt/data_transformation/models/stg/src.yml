@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: analytics-engineer-case-372415
+    tables:
+      - name: companies
+      - name: companies_deals_associations
+      - name: contacts
+      - name: contacts_deals_associations
+      - name: customers
+      - name: deals
+      - name: owners

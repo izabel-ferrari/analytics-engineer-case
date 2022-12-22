@@ -4,7 +4,6 @@ import os
 csv_file_path = './raw_data'
 project_dataset = 'analytics-engineer-case-372415.raw_data'
 
-# export GOOGLE_APPLICATION_CREDENTIALS='/home/izabel/Documents/analytics-engineer-case/part1_companies_data_elt/part1_credentials.json'
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './part1_credentials.json'
 
 client = bigquery.Client()

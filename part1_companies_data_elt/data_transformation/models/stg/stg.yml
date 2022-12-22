@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: companies_stg
+    columns:
+      - name: company_id
+        tests:
+          - unique
+          - not_null
