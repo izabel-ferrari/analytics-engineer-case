@@ -5,6 +5,11 @@ sources:
     database: analytics-engineer-case-372415
     tables:
       - name: companies
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: companies_deals_associations
       - name: contacts
       - name: contacts_deals_associations

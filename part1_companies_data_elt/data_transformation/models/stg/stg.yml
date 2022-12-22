@@ -7,3 +7,10 @@ models:
         tests:
           - unique
           - not_null
+      - name: company_country
+        tests:
+          - accepted_values:
+              values:
+                - BR
+                - MX
+                - CO
