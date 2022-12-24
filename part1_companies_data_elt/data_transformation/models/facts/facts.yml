@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: deals_fact
+    columns:
+      - name: deal_id
+        tests:
+          - unique
+          - not_null
+      - name: owner_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('owners_dim')
+              field: owner_id
+      - name: deal_company_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('companies_dim')
+              field: company_id
+      - name: deal_contact_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('contacts_dim')
+              field: contact_id
