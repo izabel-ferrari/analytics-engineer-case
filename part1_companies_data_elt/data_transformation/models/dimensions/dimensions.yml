@@ -19,7 +19,7 @@ models:
         tests:
           - unique
           - not_null
-  - name: customers_sim
+  - name: customers_dim
     columns:
       - name: customer_id
         tests:

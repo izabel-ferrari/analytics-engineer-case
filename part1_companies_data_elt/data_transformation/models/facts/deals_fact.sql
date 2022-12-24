@@ -19,6 +19,6 @@ SELECT
     deals.deal_closed_date AS deal_closed_date
 FROM deals
 LEFT JOIN companies_deals_associations
-    ON deals.deal_id = companies_deals_associations.company_id
+    ON deals.deal_id = companies_deals_associations.deal_id
 LEFT JOIN contacts_deals_associations
-    ON deals.deal_id = contacts_deals_associations.contact_id
+    ON deals.deal_id = contacts_deals_associations.deal_id

@@ -7,7 +7,7 @@ models:
         tests:
           - unique
           - not_null
-      - name: owner_id
+      - name: deal_owner_id
         tests:
           - not_null
           - relationships:
