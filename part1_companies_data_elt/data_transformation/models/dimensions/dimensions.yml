@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: companies_dim
+    columns:
+      - name: company_id
+        tests:
+          - unique
+          - not_null
+  - name: contacts_dim
+    columns:
+      - name: contact_id
+        tests:
+          - unique
+          - not_null
+  - name: owners_dim
+    columns:
+      - name: owner_id
+        tests:
+          - unique
+          - not_null
+  - name: customers_sim
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null

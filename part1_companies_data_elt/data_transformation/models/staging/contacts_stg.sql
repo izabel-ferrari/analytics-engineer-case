@@ -1,6 +1,10 @@
+WITH contacts AS (
+    SELECT * FROM {{ source('raw_data', 'contacts') }}
+)
+
 SELECT
     id AS contact_id,
-    name AS contact_name,
+    -- name AS contact_name, -- as this field contains personal data, it is advisable to either mask or remove it
     job AS contact_job,
     CASE
         WHEN UPPER(country) IN ('BRAZIL', 'BRASIL', 'BRA') THEN 'BR'
@@ -9,4 +13,4 @@ SELECT
         ELSE UPPER(country)
     END AS contact_country,
     channel AS contact_channel
-FROM {{ source('raw_data', 'contacts') }}
+FROM contacts

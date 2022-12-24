@@ -5,6 +5,7 @@ WITH deals AS (
 ), contacts_deals_associations AS (
     SELECT * FROM {{ ref ('contacts_deals_associations_stg') }}
 )
+
 SELECT
     deals.deal_id AS deal_id,
     deals.deal_owner_id AS deal_owner_id,

@@ -14,22 +14,30 @@ models:
                 - BR
                 - MX
                 - CO
-      - name: company_id
-        tests:
-          - relationships:
-              to: ref('companies_deals_associations_stg')
-              field: company_id
   - name: contacts_stg
     columns:
       - name: contact_id
         tests:
           - unique
           - not_null
-      - name: contact_id
+      - name: contact_country
         tests:
-          - relationships:
-              to: ref('contacts_deals_associations_stg')
-              field: contact_id
+          - accepted_values:
+              values:
+                - BR
+                - MX
+                - CO
+      - name: contact_channel
+        tests:
+          - accepted_values:
+              values:
+                - Blog
+                - Partner
+                - Website
+                - Referral
+                - Google Ads
+                - Prospecting
+                - Facebook Ads
   - name: customers_stg
     columns:
       - name: customer_id
@@ -41,12 +49,31 @@ models:
           - relationships:
               to: ref('owners_stg')
               field: owner_id
+      - name: customer_phase
+        tests:
+          - accepted_values:
+              values:
+                - Churn
+                - Active
+                - Onboarding
   - name: owners_stg
     columns:
       - name: owner_id
         tests:
           - unique
           - not_null
+      - name: owner_team
+        tests:
+          - accepted_values:
+              values:
+                - Sales
+                - Customer Success
+      - name: owner_job_position
+        tests:
+          - accepted_values:
+              values:
+                - Account Executive
+                - CSM
   - name: deals_stg
     columns:
       - name: deal_id
@@ -58,31 +85,46 @@ models:
           - relationships:
               to: ref('owners_stg')
               field: owner_id
-      - name: deal_id
+      - name: deal_product
         tests:
-          - relationships:
-              to: ref('companies_deals_associations_stg')
-              field: deal_id
-      - name: deal_id
+          - accepted_values:
+              values:
+                - Data Aggregation
+                - Data Enrichment
+                - Payments
+      - name: deal_status
         tests:
-          - relationships:
-              to: ref('contacts_deals_associations_stg')
-              field: deal_id
+          - accepted_values:
+              values:
+                - Closed
+                - Lost
   - name: contacts_deals_associations_stg
     columns:
       - name: contact_id
         tests:
           - not_null
+          - relationships:
+              to: ref('contacts_stg')
+              field: contact_id
       - name: deal_id
         tests:
           - unique
           - not_null
+          - relationships:
+              to: ref('deals_stg')
+              field: deal_id
   - name: companies_deals_associations_stg
     columns:
       - name: company_id
         tests:
           - not_null
+          - relationships:
+              to: ref('companies_stg')
+              field: company_id
       - name: deal_id
         tests:
           - unique
           - not_null
+          - relationships:
+              to: ref('deals_stg')
+              field: deal_id
