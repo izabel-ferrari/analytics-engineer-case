@@ -1,0 +1,52 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: analytics-engineer-case-372415
+    tables:
+      - name: companies
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: contacts
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: customers
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: owner_id
+            tests:
+              - not_null
+      - name: owners
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: deals
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: contacts_deals_associations
+        columns:
+          - name: contactId
+            tests:
+              - unique
+              - not_null
+      - name: companies_deals_associations
+        columns:
+          - name: companyId
+            tests:
+              - unique
+              - not_null
+

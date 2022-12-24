@@ -34,6 +34,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   data_transformation:
     facts:
-      +materialized: table
-    dim:
-      +materialized: table
+      materialized: table
+    dimensions:
+      materialized: table
+    staging:
+      materialized: view
