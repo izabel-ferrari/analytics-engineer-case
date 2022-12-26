@@ -19,7 +19,7 @@ All the data referenced in this project is available in the **analytics-engineer
     * Contains ingested data from source csv files
   * **transformed_data_staging**
     * Contains the staging tables
-  * **transformed_data_final**: 
+  * **transformed_data_final**
     * Contains the facts and dimensions tables
 * Datasets for Part 2
   * **covid_19_data_repository_by_csse_at_jhu**
